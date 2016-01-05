@@ -8,4 +8,4 @@ virtualenv:
 	venv/bin/pip install -r requirements.txt
 
 uwsgi:
-	venv/bin/uwsgi --wsgi-file foo/wsgi.py --http :8000 --master --processes 4 --threads 2 --chdir foo
+	venv/bin/uwsgi --ini uwsgi.ini
