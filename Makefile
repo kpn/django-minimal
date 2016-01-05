@@ -6,6 +6,9 @@ clean:
 virtualenv:
 	virtualenv venv
 	venv/bin/pip install -r requirements.txt
+	
+log:
+	mkdir log
 
-uwsgi:
-	venv/bin/uwsgi --wsgi-file foo/wsgi.py --http :8000 --master --processes 4 --threads 2 --chdir foo
+uwsgi: log
+	venv/bin/uwsgi --ini uwsgi.ini
