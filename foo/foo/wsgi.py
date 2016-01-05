@@ -16,7 +16,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "foo.settings")
 
 
 def my_application(env, start_response):
-    # time.sleep(random.uniform(0, 0.01))
+    time.sleep(random.uniform(0, 0.01))
     start_response('200 OK', [('Content-Type', 'text/html')])
     return [b"Hello World"]
 
