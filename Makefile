@@ -8,4 +8,4 @@ virtualenv:
 	venv/bin/pip install -r requirements.txt
 
 uwsgi:
-	venv/bin/uwsgi --ini uwsgi.ini
+	venv/bin/uwsgi --ini uwsgi/emperor.ini
