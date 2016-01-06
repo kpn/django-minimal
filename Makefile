@@ -1,3 +1,5 @@
+.PHONY: all clean virtualenv uwsgi
+
 all: clean virtualenv uwsgi
 
 clean:
@@ -6,9 +8,9 @@ clean:
 virtualenv:
 	virtualenv venv
 	venv/bin/pip install -r requirements.txt
-	
+
 log:
-	mkdir log
+	mkdir -p log
 
 uwsgi: log
-	venv/bin/uwsgi --ini uwsgi.ini
+	venv/bin/uwsgi --ini uwsgi/emperor.ini
