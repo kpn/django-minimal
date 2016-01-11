@@ -27,6 +27,12 @@ This repository contains:
 Requirements
 ============
 
+With docker:
+
+* docker 1.9.1+
+
+Without:
+
 * Python 2.7.10
 * Apache Bench (ab)
 * GNU Make
@@ -35,12 +41,22 @@ Requirements
 Usage
 ======
 
+With Docker:
+
+1. `docker build -t dm .`
+2. `docker run --name dm_cont dm make` to run the uwsgi server
+3. `docker exec -it dm_cont bash` and then, within the container, `make test`
+4. Exit the container shell and kill the container with `docker rm -f dm_cont`
+
+Without:
+
 1. Run `make` to start the uwsgi server
 2. On a different shell, run `make test` to start bombarding it with [Apache
    Bench](https://httpd.apache.org/docs/2.2/programs/ab.html). Note that the
    test finishes successfully.
 3. Kill the server, switch to the `appd` branch and repeat the steps. Note that
    the UWSGI server hangs completely
+
 
 Observations
 ============
