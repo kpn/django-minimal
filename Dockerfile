@@ -15,8 +15,9 @@ ADD . /projects
 
 WORKDIR /projects
 
-RUN virtualenv venv
-RUN venv/bin/pip install -r requirements.txt
+RUN rm -rf venv && \
+    virtualenv venv && \
+    venv/bin/pip install -r requirements.txt
 
 EXPOSE 8000
 
