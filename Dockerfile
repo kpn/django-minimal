@@ -15,6 +15,10 @@ ADD . /projects
 
 WORKDIR /projects
 
+RUN rm -rf venv && \
+    virtualenv venv && \
+    venv/bin/pip install -r requirements.txt
+
 EXPOSE 8000
 
 CMD make
