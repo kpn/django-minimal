@@ -54,21 +54,4 @@ Without:
 2. On a different shell, run `make test` to start bombarding it with [Apache
    Bench](https://httpd.apache.org/docs/2.2/programs/ab.html). Note that the
    test finishes successfully.
-3. Kill the server, switch to the `appd` branch and repeat the steps. Note that
-   the UWSGI server hangs completely
-
-
-Observations
-============
-
-1. When using `processes = 1` and `threads = 1` in the
-   `uwsgi/vassals-default.ini` file, both branches behave just fine
-2. When introducing concurrency with more processes and threads (for instance,
-   `processes = 2` and `threads = 50`), the `appd` branch can't handle it
-3. The issue can be triggered to happen even more often by making UWSGI reload
-   the workers more often under concurrent traffic. This can be achieved by
-   adding `max-requests = 5` and `max-requests-delta = 1` to the
-   `uwsgi/vassals-default.ini`
-4. When working with 1 process only and more than 1 thread but no forced
-   reloading, the `appd` branch can survive `make test` if the worker is loaded
-   before hand by issuing a single request (i.e. `curl http://127.0.0.1:8000/`)
+3. Kill the server, switch to the `appd` branch and repeat the steps.
