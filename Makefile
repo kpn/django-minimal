@@ -8,7 +8,7 @@ clean:
 	@find . -name *.pyc -delete
 
 virtualenv:
-	virtualenv venv
+	python3.6 -m venv venv
 	venv/bin/pip install -r requirements.txt
 
 log:
