@@ -33,7 +33,7 @@ With docker:
 
 Without:
 
-* Python 2.7.10
+* Python 3.6
 * Apache Bench (ab)
 * GNU Make
 * A linux machine (UWSGI worker reloading is troublesome under OSX)
